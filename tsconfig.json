@@ -11,6 +11,11 @@
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
     "isolatedModules": true,
+    "paths": {
+      "ng-logback": [
+        "./dist/ng-logback"
+      ]
+    },
     "esModuleInterop": true,
     "sourceMap": true,
     "declaration": false,
@@ -22,7 +27,8 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "newLine": "LF"
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
