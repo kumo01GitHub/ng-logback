@@ -1,6 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { LoggerService } from 'ng-logback';
+import { HttpPostAppender, LoggerService } from 'ng-logback';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +13,13 @@ import { LoggerService } from 'ng-logback';
 export class AppComponent {
   title = 'test-driver';
 
-  constructor() {
+  constructor(
+    httpClient: HttpClient
+  ) {
+    const loggingApiUrl = "http://localhost:3000/mock/logging"
     const loggerService = new LoggerService();
+    loggerService.getLogger().addAppender(
+      new HttpPostAppender(httpClient, loggingApiUrl));
     loggerService.getLogger().info(this.title);
   }
 }
