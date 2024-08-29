@@ -7,19 +7,19 @@ export class ConsoleAppender implements Appender {
     public write(level: LOGLEVEL, message: string): void {
         switch(level) {
             case LOGLEVEL.TRACE:
-                console.trace("%c[TRACE] " + message, "cyan");
+                console.trace("%c[TRACE] " + message, "color:cyan;");
                 break;
             case LOGLEVEL.DEBUG:
-                console.debug("%c[DEBUG] " + message, "gray");
+                console.debug("%c[DEBUG] " + message, "color:gray;");
                 break;
             case LOGLEVEL.INFO:
-                console.info("%c[INFO] " + message, "green");
+                console.info("%c[INFO] " + message, "color:green;");
                 break;
             case LOGLEVEL.WARN:
-                console.warn("%c[WARN] " + message, "yellow");
+                console.warn("%c[WARN] " + message, "color:yellow;");
                 break;
             case LOGLEVEL.ERROR:
-                console.warn("%c[ERROR] " + message, "red");
+                console.warn("%c[ERROR] " + message, "color:red;");
                 break;
         }
     }
