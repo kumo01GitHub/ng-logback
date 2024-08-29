@@ -3,10 +3,12 @@
   "version": "0.0.2",
   "scripts": {
     "ng": "ng",
-    "start-driver": "ng serve test-driver",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "start:driver": "npm run build ng-logback && ng serve test-driver",
+    "start:mock": "cd mock/logging-api && npm ci && node bin/www",
+    "start": "npx run-p start:*"
   },
   "private": true,
   "dependencies": {
@@ -36,6 +38,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "ng-packagr": "^18.2.0",
+    "npm-run-all": "4.1.5",
     "typescript": "~5.5.2"
   }
 }
