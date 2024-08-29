@@ -13,21 +13,22 @@ export class HttpPostAppender implements Appender {
     ) { }
 
     public write(level: LOGLEVEL, message: string): void {
+        const timestamp = new Date();
         switch(level) {
             case LOGLEVEL.TRACE:
-                this.httpClient.post(this.url, {level: "TRACE", message: message}, this.options).subscribe();
+                this.httpClient.post(this.url, {level: "TRACE", timestamp: timestamp, message: message}, this.options).subscribe();
                 break;
             case LOGLEVEL.DEBUG:
-                this.httpClient.post(this.url, {level: "DEBUG", message: message}, this.options).subscribe();
+                this.httpClient.post(this.url, {level: "DEBUG", timestamp: timestamp, message: message}, this.options).subscribe();
                 break;
             case LOGLEVEL.INFO:
-                this.httpClient.post(this.url, {level: "INFO", message: message}, this.options).subscribe();
+                this.httpClient.post(this.url, {level: "INFO", timestamp: timestamp, message: message}, this.options).subscribe();
                 break;
             case LOGLEVEL.WARN:
-                this.httpClient.post(this.url, {level: "WARN", message: message}, this.options).subscribe();
+                this.httpClient.post(this.url, {level: "WARN", timestamp: timestamp, message: message}, this.options).subscribe();
                 break;
             case LOGLEVEL.ERROR:
-                this.httpClient.post(this.url, {level: "ERROR", message: message}, this.options).subscribe();
+                this.httpClient.post(this.url, {level: "ERROR", timestamp: timestamp, message: message}, this.options).subscribe();
                 break;
         }
     }

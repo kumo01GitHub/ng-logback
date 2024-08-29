@@ -5,22 +5,39 @@ export class ConsoleAppender implements Appender {
     public name: string = this.constructor.name;
 
     public write(level: LOGLEVEL, message: string): void {
+        const timestamp = new Date();
+        let log: (message?: any, ...optionalParams: any[]) => void = console.log;
+        let label: String = "";
+        let style: String = "color:black;"
+
         switch(level) {
             case LOGLEVEL.TRACE:
-                console.trace("%c[TRACE] " + message, "color:cyan;");
+                log = console.trace;
+                label = "TRACE";
+                style = "color:cyan;"
                 break;
             case LOGLEVEL.DEBUG:
-                console.debug("%c[DEBUG] " + message, "color:gray;");
+                log = console.debug;
+                label = "DEBUG";
+                style = "color:gray;"
                 break;
             case LOGLEVEL.INFO:
-                console.info("%c[INFO] " + message, "color:green;");
+                log = console.info;
+                label = "INFO";
+                style = "color:green;"
                 break;
             case LOGLEVEL.WARN:
-                console.warn("%c[WARN] " + message, "color:yellow;");
+                log = console.warn;
+                label = "WARN";
+                style = "color:orange;"
                 break;
             case LOGLEVEL.ERROR:
-                console.warn("%c[ERROR] " + message, "color:red;");
+                log = console.error;
+                label = "ERROR";
+                style = "color:red;"
                 break;
         }
+
+        log(`%c[${label}] ${timestamp} - ${message}`, style);
     }
 }

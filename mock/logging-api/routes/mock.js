@@ -10,13 +10,18 @@ router.post('/logging', function(req, res, next) {
     res.sendStatus(400);
     return;
   }
+  if (!req.body.timestamp) {
+    console.error("no timestamp");
+    res.sendStatus(400);
+    return;
+  }
   if (!req.body.message) {
     console.error("no message");
     res.sendStatus(400);
     return;
   }
 
-  console.log(`[${req.body.level}] ${req.body.message}`);
+  console.log(`[${req.body.level}] ${req.body.timestamp} - ${req.body.message}`);
   res.status(200);
   res.json({});
 });
