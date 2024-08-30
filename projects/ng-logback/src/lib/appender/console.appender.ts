@@ -10,6 +10,8 @@ export class ConsoleAppender implements Appender {
         let style: String = "color:black;"
 
         switch(level) {
+            case LogLevel.None:
+                return;
             case LogLevel.Trace:
                 log = console.trace;
                 style = "color:cyan;"
@@ -30,8 +32,6 @@ export class ConsoleAppender implements Appender {
                 log = console.error;
                 style = "color:red;"
                 break;
-            default:
-                return;
         }
 
         log(`%c[${level.label}] ${timestamp} - ${message}`, style);
