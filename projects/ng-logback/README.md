@@ -1,24 +1,21 @@
 # NgLogback
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.0.
+Logger Service for Angular inspired by Logback.
 
-## Code scaffolding
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.1.
 
-Run `ng generate component component-name --project ng-logback` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ng-logback`.
-> Note: Don't forget to add `--project ng-logback` or else it will be added to the default project in your `angular.json` file. 
+## Development server
+
+Run `npm run start` for a dev server.
 
 ## Build
 
-Run `ng build ng-logback` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Publishing
-
-After building your library with `ng build ng-logback`, go to the dist folder `cd dist/ng-logback` and run `npm publish`.
+Run `npm run build ng-logback` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 ## Running unit tests
 
-Run `ng test ng-logback` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `npm run test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Further help
+## Running end-to-end tests
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.

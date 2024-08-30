@@ -14,10 +14,10 @@ export class AppComponent {
   title = 'test-driver';
 
   constructor(
-    httpClient: HttpClient
+    httpClient: HttpClient,
+    loggerService: LoggerService
   ) {
     const loggingApiUrl = "http://localhost:3000/mock/logging"
-    const loggerService = new LoggerService();
     loggerService.getLogger().addAppender(
       new HttpPostAppender(httpClient, loggingApiUrl));
     loggerService.getLogger().info(this.title);
