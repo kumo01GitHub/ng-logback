@@ -1,12 +1,10 @@
-import { Injectable } from '@angular/core';
 import { Appender } from './appender.model'; 
-import { LOGLEVEL } from './loglevel';
+import { LogLevel } from './loglevel';
 
-@Injectable()
 export abstract class Logger {
     constructor(
         private _name: string,
-        private _level: LOGLEVEL = LOGLEVEL.NONE,
+        private _level: LogLevel,
         private _appenders: Map<string, Appender>
     ) { }
 
@@ -22,7 +20,7 @@ export abstract class Logger {
         this._appenders.delete(name);
     }
 
-    private write(level: LOGLEVEL, message: string): void {
+    private write(level: LogLevel, message: string): void {
         if (!!this._appenders && this._level <= level ) {
             this._appenders.forEach((appender: Appender) => {
                 appender.write(level, message);
@@ -30,9 +28,9 @@ export abstract class Logger {
         }
     }
 
-    public trace(message: string): void { this.write(LOGLEVEL.TRACE, message); }
-    public debug(message: string): void { this.write(LOGLEVEL.DEBUG, message); }
-    public info(message: string): void { this.write(LOGLEVEL.INFO, message); }
-    public warn(message: string): void { this.write(LOGLEVEL.WARN, message); }
-    public error(message: string): void { this.write(LOGLEVEL.ERROR, message); }
+    public trace(message: string): void { this.write(LogLevel.Trace, message); }
+    public debug(message: string): void { this.write(LogLevel.Debug, message); }
+    public info(message: string): void { this.write(LogLevel.Info, message); }
+    public warn(message: string): void { this.write(LogLevel.Warn, message); }
+    public error(message: string): void { this.write(LogLevel.Error, message); }
 }

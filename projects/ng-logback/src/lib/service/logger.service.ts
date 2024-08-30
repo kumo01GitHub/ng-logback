@@ -1,5 +1,5 @@
-import { Injectable } from "@angular/core";
-import { LOGLEVEL } from "../abstract/loglevel";
+import { EnvironmentProviders, Injectable, makeEnvironmentProviders } from "@angular/core";
+import { LogLevel } from "../abstract/loglevel";
 import { RootLogger } from "../logger/root.logger";
 import { Logger } from "../abstract/logger.model";
 
@@ -11,7 +11,7 @@ export class LoggerService {
     private static loggers: Map<string, Logger>;
 
     constructor(
-        rootLoglevel: LOGLEVEL = LOGLEVEL.INFO
+        rootLoglevel: LogLevel = LogLevel.Trace
     ) {
         LoggerService.ROOT_LOGGER = new RootLogger(rootLoglevel);
         LoggerService.loggers = new Map([
@@ -40,4 +40,14 @@ export class LoggerService {
             return LoggerService.ROOT_LOGGER;
         }
     }
+}
+
+export function provideLoggerService(rootLoglevel: LogLevel = LogLevel.Info): EnvironmentProviders {
+    const providers = [
+        {
+            provide: LoggerService,
+            useFactory: () => new LoggerService(rootLoglevel)
+        }
+    ]
+    return makeEnvironmentProviders(providers);
 }
