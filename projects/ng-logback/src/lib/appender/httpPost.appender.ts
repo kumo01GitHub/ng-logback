@@ -14,6 +14,8 @@ export class HttpPostAppender implements Appender {
 
     public write(level: LogLevel, message: string): void {
         const timestamp = new Date();
-        this.httpClient.post(this.url, {level: level.label, timestamp: timestamp, message: message}, this.options).subscribe();
+        if (!level.level) {
+            this.httpClient.post(this.url, {level: level.label, timestamp: timestamp, message: message}, this.options).subscribe();
+        }
     }
 }
