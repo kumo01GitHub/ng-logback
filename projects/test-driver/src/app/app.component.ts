@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HttpPostAppender, IndexedDBAppender, LoggerService } from 'ng-logback';
+import { LocalStorageAppender } from '../../../ng-logback/src/lib/appender/localStorage.appender';
 
 @Component({
   selector: 'app-root',
@@ -23,6 +24,7 @@ export class AppComponent {
     logger.addAppender(new HttpPostAppender(httpClient, loggingApiUrl));
     const storeName = this.constructor.name;
     logger.addAppender(new IndexedDBAppender(storeName));
+    logger.addAppender(new LocalStorageAppender());
 
     logger.trace(`${this.title}: sample message`);
     logger.debug(`${this.title}: sample message`);

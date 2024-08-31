@@ -20,7 +20,7 @@ export abstract class Logger {
         this._appenders.delete(name);
     }
 
-    private async write(level: LogLevel, message: string): Promise<void> {
+    private log(level: LogLevel, message: string): void {
         const timestamp = new Date();
         if (!!this._appenders && this._level.priority <= level.priority ) {
             this._appenders.forEach((appender: Appender) => {
@@ -29,9 +29,9 @@ export abstract class Logger {
         }
     }
 
-    public trace(message: string): void { this.write(LogLevel.Trace, message); }
-    public debug(message: string): void { this.write(LogLevel.Debug, message); }
-    public info(message: string): void { this.write(LogLevel.Info, message); }
-    public warn(message: string): void { this.write(LogLevel.Warn, message); }
-    public error(message: string): void { this.write(LogLevel.Error, message); }
+    public trace(message: string): void { this.log(LogLevel.Trace, message); }
+    public debug(message: string): void { this.log(LogLevel.Debug, message); }
+    public info(message: string): void { this.log(LogLevel.Info, message); }
+    public warn(message: string): void { this.log(LogLevel.Warn, message); }
+    public error(message: string): void { this.log(LogLevel.Error, message); }
 }

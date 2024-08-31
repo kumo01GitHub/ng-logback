@@ -29,7 +29,7 @@ export class IndexedDBAppender implements Appender {
                 const db: IDBDatabase = (e.target as IDBOpenDBRequest).result;
                 const transaction: IDBTransaction = db.transaction(this.storeName, "readwrite");
                 const store: IDBObjectStore = transaction.objectStore(this.storeName);
-                store.put({ timestamp: event.timestamp, level: event.level.label, message: event.message });
+                store.put({ timestamp: event.timestamp.toLocaleString(), level: event.level.label, message: event.message });
             }
             openRequest.onerror = (): void => {
                 console.error("open IndexDB fail");
