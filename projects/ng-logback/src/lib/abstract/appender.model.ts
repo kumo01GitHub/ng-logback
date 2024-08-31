@@ -1,6 +1,6 @@
-import { LogLevel } from "./loglevel";
+import { ILoggingEvent } from "./logging-event.model";
 
 export interface Appender {
     get name(): string;
-    write(level: LogLevel, message: string): void;
+    doAppend(event: ILoggingEvent): void;
 }
