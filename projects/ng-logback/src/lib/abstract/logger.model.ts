@@ -21,9 +21,10 @@ export abstract class Logger {
     }
 
     private async write(level: LogLevel, message: string): Promise<void> {
-        if (!!this._appenders && this._level <= level ) {
+        const timestamp = new Date();
+        if (!!this._appenders && this._level.priority <= level.priority ) {
             this._appenders.forEach((appender: Appender) => {
-                appender.write(level, message);
+                appender.doAppend({level: level, message: message, timestamp: timestamp});
             })
         }
     }

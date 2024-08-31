@@ -1,4 +1,5 @@
 import { Appender } from "../abstract/appender.model";
+import { ILoggingEvent } from "../abstract/logging-event.model";
 import { LogLevel } from "../abstract/loglevel";
 
 export class ConsoleAppender implements Appender {
@@ -6,12 +7,11 @@ export class ConsoleAppender implements Appender {
         return this.constructor.name;
     }
 
-    public write(level: LogLevel, message: string): void {
-        const timestamp = new Date();
+    public doAppend(event: ILoggingEvent): void {
         let log: (message?: any, ...optionalParams: any[]) => void = console.log;
         let style: String = "color:black;"
 
-        switch(level) {
+        switch(event.level) {
             case LogLevel.None:
                 return;
             case LogLevel.Trace:
@@ -36,6 +36,6 @@ export class ConsoleAppender implements Appender {
                 break;
         }
 
-        log(`%c[${level.label}] ${timestamp} - ${message}`, style);
+        log(`%c[${event.level.label}] ${event.timestamp} - ${event.message}`, style);
     }
 }

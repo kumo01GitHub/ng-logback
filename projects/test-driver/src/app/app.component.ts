@@ -20,6 +20,13 @@ export class AppComponent {
     const loggingApiUrl = "http://localhost:3000/mock/logging"
     loggerService.getLogger().addAppender(
       new HttpPostAppender(httpClient, loggingApiUrl));
-    loggerService.getLogger().info(this.title);
+    
+      const logger = loggerService.getLogger();
+      
+      logger.trace(`${this.title}: sample message`);
+      logger.debug(`${this.title}: sample message`);
+      logger.info(`${this.title}: sample message`);
+      logger.warn(`${this.title}: sample message`);
+      logger.error(`${this.title}: sample message`);
   }
 }

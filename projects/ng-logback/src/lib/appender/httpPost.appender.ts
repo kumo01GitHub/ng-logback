@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 
 import { Appender } from "../abstract/appender.model";
-import { LogLevel } from "../abstract/loglevel";
+import { ILoggingEvent } from "../abstract/logging-event.model";
 
 export class HttpPostAppender implements Appender {
 
@@ -15,10 +15,9 @@ export class HttpPostAppender implements Appender {
         return this.constructor.name;
     }
 
-    public write(level: LogLevel, message: string): void {
-        const timestamp = new Date();
-        if (!level.level) {
-            this.httpClient.post(this.url, {level: level.label, timestamp: timestamp, message: message}, this.options).subscribe();
+    public doAppend(event: ILoggingEvent): void {
+        if (!!event.level.priority) {
+            this.httpClient.post(this.url, {level: event.level.label, timestamp: event.timestamp, message: event.message}, this.options).subscribe();
         }
     }
 }

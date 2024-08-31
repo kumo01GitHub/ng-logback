@@ -3,20 +3,13 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
-import { LoggerService } from 'ng-logback';
-
-const loggerServiceFactory = () => {
-  return new LoggerService();
-}
+import { LogLevel, provideLoggerService } from 'ng-logback';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideHttpClient(),
-    {
-      provide: LoggerService,
-      useFactory: loggerServiceFactory
-    }
+    provideLoggerService(LogLevel.Info)
   ]
 };
