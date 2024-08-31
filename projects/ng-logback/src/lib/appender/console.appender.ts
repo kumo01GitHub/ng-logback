@@ -1,5 +1,4 @@
-import { Appender } from "../abstract/appender.model";
-import { ILoggingEvent } from "../abstract/logging-event.model";
+import { Appender, ILoggingEvent } from "../abstract/appender.model";
 import { LogLevel } from "../abstract/loglevel";
 
 export class ConsoleAppender implements Appender {

@@ -8,7 +8,7 @@
     "test": "ng test",
     "start:driver": "npm run build ng-logback && ng serve test-driver",
     "start:mock": "cd mock/logging-api && npm ci && node bin/www",
-    "start": "npx run-p start:*"
+    "start": "run-p start:*"
   },
   "private": true,
   "dependencies": {

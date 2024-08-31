@@ -1,4 +1,10 @@
-import { ILoggingEvent } from "./logging-event.model";
+import { LogLevel } from "./loglevel";
+
+export interface ILoggingEvent {
+    timestamp: Date;
+    level: LogLevel;
+    message: string;
+}
 
 export interface Appender {
     get name(): string;
