@@ -20,7 +20,7 @@ export abstract class Logger {
         this._appenders.delete(name);
     }
 
-    private write(level: LogLevel, message: string): void {
+    private async write(level: LogLevel, message: string): Promise<void> {
         if (!!this._appenders && this._level <= level ) {
             this._appenders.forEach((appender: Appender) => {
                 appender.write(level, message);
