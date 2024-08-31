@@ -2,7 +2,9 @@ import { Appender } from "../abstract/appender.model";
 import { LogLevel } from "../abstract/loglevel";
 
 export class ConsoleAppender implements Appender {
-    public name: string = this.constructor.name;
+    public get name(): string {
+        return this.constructor.name;
+    }
 
     public write(level: LogLevel, message: string): void {
         const timestamp = new Date();

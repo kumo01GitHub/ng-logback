@@ -4,13 +4,16 @@ import { Appender } from "../abstract/appender.model";
 import { LogLevel } from "../abstract/loglevel";
 
 export class HttpPostAppender implements Appender {
-    public name: string = this.constructor.name;
 
     constructor(
         private httpClient: HttpClient,
         private url: string,
         private options?: any
     ) { }
+
+    public get name(): string {
+        return this.constructor.name;
+    }
 
     public write(level: LogLevel, message: string): void {
         const timestamp = new Date();
