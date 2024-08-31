@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HttpPostAppender, IndexedDBAppender, LoggerService } from 'ng-logback';
-import { LocalStorageAppender } from '../../../ng-logback/src/lib/appender/localStorage.appender';
+import { HttpPostAppender, IndexedDBAppender, LocalStorageAppender, LoggerService } from 'ng-logback';
 
 @Component({
   selector: 'app-root',
