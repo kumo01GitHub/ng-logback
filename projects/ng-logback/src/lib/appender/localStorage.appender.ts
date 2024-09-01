@@ -1,5 +1,5 @@
 import { v4 as uuid } from 'uuid';
-import { Appender, ILoggingEvent } from "../abstract/appender.model";
+import { Appender, ILoggingEvent } from "./appender";
 
 export class LocalStorageAppender implements Appender {
     constructor(

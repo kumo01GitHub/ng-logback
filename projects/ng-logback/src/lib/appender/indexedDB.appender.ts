@@ -1,4 +1,4 @@
-import { Appender, ILoggingEvent } from "../abstract/appender.model";
+import { Appender, ILoggingEvent } from "./appender";
 
 export class IndexedDBAppender implements Appender {
     constructor(

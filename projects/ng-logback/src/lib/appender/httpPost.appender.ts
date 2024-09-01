@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 
-import { Appender, ILoggingEvent } from "../abstract/appender.model";
+import { Appender, ILoggingEvent } from "./appender";
 
 export class HttpPostAppender implements Appender {
 

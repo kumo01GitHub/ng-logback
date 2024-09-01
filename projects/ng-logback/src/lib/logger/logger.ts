@@ -1,12 +1,19 @@
-import { Appender } from './appender.model'; 
-import { LogLevel } from './loglevel';
+import { Appender, LogLevel } from '../appender/appender';
 
-export abstract class Logger {
+export class Logger {
+    private _appenders: Map<string, Appender> = new Map<string, Appender>();
+
     constructor(
         private _name: string,
         private _level: LogLevel,
-        private _appenders: Map<string, Appender>
-    ) { }
+        appenders?: Appender[]
+    ) {
+        if (appenders) {
+            appenders.forEach((appender: Appender) => {
+                this.addAppender(appender);
+            });
+        }
+    }
 
     public get name() {
         return this._name;
@@ -18,6 +25,10 @@ export abstract class Logger {
 
     public removeAppender(name: string): void {
         this._appenders.delete(name);
+    }
+
+    public get appenderNames(): string[] {
+        return Array.from(this._appenders.keys());
     }
 
     private log(level: LogLevel, message: string): void {

@@ -8,3 +8,14 @@ export const LogLevel = {
 } as const;
 
 export type LogLevel = typeof LogLevel[keyof typeof LogLevel];
+
+export interface ILoggingEvent {
+    timestamp: Date;
+    level: LogLevel;
+    message: string;
+}
+
+export interface Appender {
+    get name(): string;
+    doAppend(event: ILoggingEvent): void;
+}
