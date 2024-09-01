@@ -18,15 +18,13 @@ export class LoggerService {
         rootLoglevel: LogLevel = LogLevel.Trace
     ) {
         // Initialize Root Logger
-        if (!LoggerService.ROOT_LOGGER) {
-            LoggerService.ROOT_LOGGER = new Logger(
-                LoggerService.ROOT_LOGGER_NAME,
-                rootLoglevel,
-                [new ConsoleAppender()]
-            );
+        LoggerService.ROOT_LOGGER = new Logger(
+            LoggerService.ROOT_LOGGER_NAME,
+            rootLoglevel,
+            [new ConsoleAppender()]
+        );
 
-            this.addLogger(LoggerService.ROOT_LOGGER);
-        }
+        this.addLogger(LoggerService.ROOT_LOGGER);
     }
 
     /**

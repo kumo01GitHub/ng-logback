@@ -15,9 +15,9 @@ export class AppComponent {
 
   constructor(
     httpClient: HttpClient,
-    loggerService: LoggerService
+    private loggerService: LoggerService
   ) {
-    const logger = loggerService.getLogger();
+    const logger = this.loggerService.getLogger();
 
     const loggingApiUrl = "http://localhost:3000/mock/logging";
     logger.addAppender(new HttpPostAppender(httpClient, loggingApiUrl));
