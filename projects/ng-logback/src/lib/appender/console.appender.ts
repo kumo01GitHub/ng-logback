@@ -14,7 +14,7 @@ export class ConsoleAppender implements Appender {
                 return;
             case LogLevel.Trace:
                 log = console.trace;
-                style = "color:cyan;"
+                style = "color:navy;"
                 break;
             case LogLevel.Debug:
                 log = console.debug;

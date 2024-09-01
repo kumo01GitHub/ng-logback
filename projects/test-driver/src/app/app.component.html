@@ -92,6 +92,10 @@
     margin-top: 1.5rem;
   }
 
+  .playground {
+    margin-top: 1.5rem;
+  }
+
   .divider {
     width: 1px;
     background: var(--red-to-pink-to-purple-vertical-gradient);
@@ -227,6 +231,9 @@
       </svg>
       <h1>Hello, {{ title }}</h1>
       <p>Congratulations! Your app is running. 🎉</p>
+      <div class="playground">
+        <button (click)="log()">log</button>
+      </div>
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
