@@ -33,11 +33,11 @@ export class LoggerService {
     }
 
     /**
-     * Add Logger. Root Logger is uneditable using this method.
+     * Add Logger. When Logger Service has the provided name, Do nothing.
      * @param {ILogger}  logger Logger Info
      */
     public addLogger(logger: ILogger): void {
-        if (LoggerService.ROOT_LOGGER_NAME !== logger.name) {
+        if (!this.has(logger.name)) {
             LoggerService.loggers.set(logger.name, new Logger(
                 logger.name,
                 logger.level,
