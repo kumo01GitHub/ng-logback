@@ -92,11 +92,7 @@ export class LoggerService {
 export function provideLoggerService(arg?: {
     rootLogLevel?: LogLevel;
     rootAppenders?: Appender[];
-    loggers?: {
-        name: string;
-        level: LogLevel;
-        appenders: Appender[];
-    }[];
+    loggers?: ILogger[];
 }): EnvironmentProviders {
     const providers = [
         {
@@ -113,11 +109,7 @@ export function provideLoggerService(arg?: {
                 // Add Other Loggers
                 if (arg?.loggers) {
                     arg.loggers.forEach((logger) => {
-                        loggerService.addLogger({
-                            name: logger.name,
-                            level: logger.level,
-                            appenders: logger.appenders
-                        });
+                        loggerService.addLogger(logger);
                     });
                 }
 
