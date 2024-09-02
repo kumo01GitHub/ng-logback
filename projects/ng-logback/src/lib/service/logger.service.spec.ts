@@ -38,6 +38,7 @@ describe('LoggerService', () => {
 
     expect(service.has(loggerName)).toBeTrue();
     expect(service.getLogger(loggerName)).toBeTruthy();
+    expect(service.getLogger(loggerName).name).toEqual(loggerName);
     expect(service.loggerNames).toHaveSize(beforeLength + 1);
   });
 
@@ -91,5 +92,26 @@ describe('LoggerService', () => {
 
     expect(service.getLogger()).toBeTruthy();
     expect(service.has(LoggerService.ROOT_LOGGER_NAME)).toBeTrue();
+  });
+
+  it('returns Root Logger without name', () => {
+    expect(service.getLogger().name).toEqual(LoggerService.ROOT_LOGGER_NAME);
+  });
+
+  it('returns Root Logger when not added name', () => {
+    expect(service.getLogger("notAddedName").name).toEqual(LoggerService.ROOT_LOGGER_NAME);
+  });
+
+  it('returns Logger names', () => {
+    const loggerName = "addName";
+    const before = service.loggerNames;
+
+    service.addLogger({
+      name: loggerName,
+      level: LogLevel.Info,
+      appenders: [new ConsoleAppender()]
+    });
+
+    expect(service.loggerNames).toEqual(before.concat([loggerName]));
   });
 });
