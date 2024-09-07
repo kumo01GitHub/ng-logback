@@ -1,6 +1,9 @@
 import { v4 as uuid } from 'uuid';
 import { Appender, ILoggingEvent } from "./appender";
 
+/**
+ * LocalStorage Appender. The key is UUID.
+ */
 export class LocalStorageAppender implements Appender {
     constructor(
         private keyPrefix: string = this.constructor.name
@@ -12,7 +15,7 @@ export class LocalStorageAppender implements Appender {
 
     public doAppend(event: ILoggingEvent): void {
         if (!!event.level.priority) {
-            localStorage.setItem(this.generateKey(), `[${event.level.label}] ${event.timestamp} - ${event.message}`);
+            localStorage.setItem(this.generateKey(), `[${event.logger}:${event.level.label}] ${event.timestamp} - ${event.message}`);
         }
     }
 

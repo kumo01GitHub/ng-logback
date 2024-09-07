@@ -2,6 +2,9 @@ import { HttpClient } from "@angular/common/http";
 
 import { Appender, ILoggingEvent } from "./appender";
 
+/**
+ * Http Post Appender.
+ */
 export class HttpPostAppender implements Appender {
 
     constructor(
@@ -16,7 +19,15 @@ export class HttpPostAppender implements Appender {
 
     public doAppend(event: ILoggingEvent): void {
         if (!!event.level.priority) {
-            this.httpClient.post(this.url, {level: event.level.label, timestamp: event.timestamp, message: event.message}, this.options).subscribe();
+            this.httpClient.post(
+                this.url, {
+                    logger: event.logger,
+                    level: event.level.label,
+                    timestamp: event.timestamp,
+                    message: event.message
+                },
+                this.options
+            ).subscribe();
         }
     }
 }

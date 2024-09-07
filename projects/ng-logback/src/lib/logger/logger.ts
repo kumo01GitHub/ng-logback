@@ -39,7 +39,12 @@ export class Logger {
             this._level.priority <= level.priority
         ) {
             this._appenders.forEach((appender: Appender) => {
-                appender.doAppend({level: level, message: message, timestamp: timestamp});
+                appender.doAppend({
+                    logger: this._name,
+                    level: level,
+                    message: message,
+                    timestamp: timestamp
+                });
             })
         }
     }

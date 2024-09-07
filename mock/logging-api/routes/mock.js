@@ -21,7 +21,7 @@ router.post('/logging', function(req, res, next) {
     return;
   }
 
-  console.log(`[${req.body.level}] ${req.body.timestamp} - ${req.body.message}`);
+  console.log(`[${req.body.logger}:${req.body.level}] ${req.body.timestamp} - ${req.body.message}`);
   res.status(200);
   res.json({});
 });

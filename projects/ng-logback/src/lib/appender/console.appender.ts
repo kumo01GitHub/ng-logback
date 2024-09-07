@@ -1,5 +1,8 @@
 import { Appender, ILoggingEvent, LogLevel } from "./appender";
 
+/**
+ * Console Appender.
+ */
 export class ConsoleAppender implements Appender {
     public get name(): string {
         return this.constructor.name;
@@ -34,6 +37,6 @@ export class ConsoleAppender implements Appender {
                 break;
         }
 
-        log(`%c[${event.level.label}] ${event.timestamp} - ${event.message}`, style);
+        log(`%c[${event.logger}:${event.level.label}] ${event.timestamp} - ${event.message}`, style);
     }
 }
