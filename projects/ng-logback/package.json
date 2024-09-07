@@ -1,6 +1,6 @@
 {
   "name": "ng-logback",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "Logger Service for Angular inspired by Logback.",
   "keywords": [
     "Angular",
