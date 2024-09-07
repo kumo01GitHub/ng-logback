@@ -1,7 +1,8 @@
 import { EnvironmentProviders, Injectable, makeEnvironmentProviders } from "@angular/core";
 import { Logger } from "../logger/logger";
-import { Appender, LogLevel } from "../appender/appender";
+import { Appender } from "../appender/appender";
 import { ConsoleAppender } from "../appender/console.appender";
+import { LogLevel } from "../types/loglevel";
 
 export interface ILogger {
     name: string,

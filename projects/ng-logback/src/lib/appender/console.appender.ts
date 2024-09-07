@@ -1,4 +1,5 @@
-import { Appender, ILoggingEvent, LogLevel } from "./appender";
+import { LogLevel } from "../types/loglevel";
+import { Appender, ILoggingEvent } from "./appender";
 
 /**
  * Console Appender.

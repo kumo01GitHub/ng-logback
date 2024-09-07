@@ -3,9 +3,9 @@ import { provideHttpClient } from '@angular/common/http';
 import { Logger } from './logger';
 import { LoggerService, provideLoggerService } from '../service/logger.service';
 import { LocalStorageAppender } from '../appender/localStorage.appender';
-import { LogLevel } from '../appender/appender';
 import { IndexedDBAppender } from '../appender/indexedDB.appender';
 import { ConsoleAppender } from '../appender/console.appender';
+import { LogLevel } from '../types/loglevel';
 
 describe('Logger', () => {
   let rootLogger: Logger;

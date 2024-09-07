@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import { LoggerService, provideLoggerService } from './logger.service';
 import { provideHttpClient } from '@angular/common/http';
-import { LogLevel } from '../appender/appender';
 import { IndexedDBAppender } from '../appender/indexedDB.appender';
 import { ConsoleAppender } from '../appender/console.appender';
+import { LogLevel } from '../types/loglevel';
 
 describe('LoggerService', () => {
   let service: LoggerService;

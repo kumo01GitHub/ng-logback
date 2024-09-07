@@ -1,4 +1,5 @@
-import { Appender, LogLevel } from '../appender/appender';
+import { Appender } from '../appender/appender';
+import { LogLevel } from '../types/loglevel';
 
 export class Logger {
     private _appenders: Map<string, Appender> = new Map<string, Appender>();

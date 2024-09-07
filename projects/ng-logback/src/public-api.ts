@@ -3,6 +3,7 @@
  */
 
 /** model */
+export * from './lib/types/loglevel';
 export * from './lib/appender/appender';
 
 /** appenders */
