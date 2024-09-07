@@ -27,13 +27,17 @@ export class Logger {
         this._appenders.delete(name);
     }
 
-    public get appenderNames(): string[] {
+    public get appenders(): string[] {
         return Array.from(this._appenders.keys());
     }
 
     private log(level: LogLevel, message: string): void {
         const timestamp = new Date();
-        if (!!this._appenders && this._level.priority <= level.priority ) {
+        if (
+            !!this._appenders &&
+            this._level !== LogLevel.None &&
+            this._level.priority <= level.priority
+        ) {
             this._appenders.forEach((appender: Appender) => {
                 appender.doAppend({level: level, message: message, timestamp: timestamp});
             })

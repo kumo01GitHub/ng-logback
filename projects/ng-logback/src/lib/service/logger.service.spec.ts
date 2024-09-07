@@ -29,7 +29,7 @@ describe('LoggerService', () => {
 
   it('can add Logger', () => {
     const loggerName = "canAddLogger";
-    const beforeLength = service.loggerNames.length;
+    const beforeLength = service.loggers.length;
     service.addLogger({
       name: loggerName,
       level: LogLevel.Info,
@@ -39,7 +39,7 @@ describe('LoggerService', () => {
     expect(service.has(loggerName)).toBeTrue();
     expect(service.getLogger(loggerName)).toBeTruthy();
     expect(service.getLogger(loggerName).name).toEqual(loggerName);
-    expect(service.loggerNames).toHaveSize(beforeLength + 1);
+    expect(service.loggers).toHaveSize(beforeLength + 1);
   });
 
   it('can\'t add Logger twice', () => {
@@ -47,7 +47,7 @@ describe('LoggerService', () => {
     const appenders1 = [new ConsoleAppender()];
     const appenders2 = [new ConsoleAppender(), new IndexedDBAppender];
 
-    const beforeLength = service.loggerNames.length;
+    const beforeLength = service.loggers.length;
 
     service.addLogger({
       name: loggerName,
@@ -62,13 +62,13 @@ describe('LoggerService', () => {
 
     expect(service.has(loggerName)).toBeTrue();
     expect(service.getLogger(loggerName)).toBeTruthy();
-    expect(service.loggerNames).toHaveSize(beforeLength + 1);
-    expect(service.getLogger(loggerName).appenderNames).toHaveSize(appenders1.length);
+    expect(service.loggers).toHaveSize(beforeLength + 1);
+    expect(service.getLogger(loggerName).appenders).toHaveSize(appenders1.length);
   });
 
   it('can remove Logger', () => {
     const loggerName = "canRemoveLogger";
-    const beforeLength = service.loggerNames.length;
+    const beforeLength = service.loggers.length;
 
     service.addLogger({
       name: loggerName,
@@ -78,13 +78,13 @@ describe('LoggerService', () => {
 
     expect(service.has(loggerName)).toBeTrue();
     expect(service.getLogger(loggerName)).toBeTruthy();
-    expect(service.loggerNames).toHaveSize(beforeLength + 1);
+    expect(service.loggers).toHaveSize(beforeLength + 1);
 
     service.removeLogger(loggerName);
 
     expect(service.has(loggerName)).toBeFalse();
     expect(service.getLogger(loggerName).name).toEqual(LoggerService.ROOT_LOGGER_NAME);
-    expect(service.loggerNames).toHaveSize(beforeLength);
+    expect(service.loggers).toHaveSize(beforeLength);
   });
 
   it('can\'t remove Root Logger', () => {
@@ -103,8 +103,8 @@ describe('LoggerService', () => {
   });
 
   it('returns Logger names', () => {
-    const loggerName = "addName";
-    const before = service.loggerNames;
+    const loggerName = "addedLogger";
+    const before = service.loggers;
 
     service.addLogger({
       name: loggerName,
@@ -112,6 +112,6 @@ describe('LoggerService', () => {
       appenders: [new ConsoleAppender()]
     });
 
-    expect(service.loggerNames).toEqual(before.concat([loggerName]));
+    expect(service.loggers).toEqual(before.concat([loggerName]));
   });
 });

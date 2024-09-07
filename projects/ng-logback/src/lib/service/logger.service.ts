@@ -75,7 +75,7 @@ export class LoggerService {
      * Get Logger Names.
      * @returns {string[]} Logger Names
      */
-    public get loggerNames(): string[] {
+    public get loggers(): string[] {
         return Array.from(LoggerService.loggers.keys());
     }
 
