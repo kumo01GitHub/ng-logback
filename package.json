@@ -1,8 +1,8 @@
 {
   "name": "ng-logback",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "scripts": {
-    "prepublishOnly": "npm version from-git && cpx ./README.md dist/ng-logback && cpx ./LICENSE dist/ng-logback",
+    "prepublishOnly": "cpx ./README.md dist/ng-logback && cpx ./LICENSE dist/ng-logback",
     "ng": "ng",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
