@@ -1,11 +1,13 @@
 {
   "name": "ng-logback",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Logger Service for Angular inspired by Logback.",
   "keywords": [
     "Angular",
     "log",
-    "logger"
+    "logger",
+    "Google Analytics",
+    "GA4"
   ],
   "repository": {
     "type": "git",

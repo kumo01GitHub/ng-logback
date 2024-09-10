@@ -3,6 +3,7 @@ import { Appender, ILoggingEvent } from "./appender";
 
 /**
  * LocalStorage Appender. The key is UUID.
+ * @public
  */
 export class LocalStorageAppender implements Appender {
     constructor(

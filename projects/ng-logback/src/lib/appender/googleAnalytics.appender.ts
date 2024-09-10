@@ -2,6 +2,7 @@ import { Appender, ILoggingEvent } from "./appender";
 
 /**
  * Google Analytics Appender.
+ * @public
  */
 export class GoogleAnalyticsAppender implements Appender {
 

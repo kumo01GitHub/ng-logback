@@ -4,7 +4,7 @@ Logger Service for Angular inspired by Logback.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.1.
 
-## Outline
+## Overview
 ```mermaid
 ---
 title: "Outline Diagram"
@@ -19,7 +19,7 @@ erDiagram
 | ---- | ---- |
 | LoggerService | Singleton service for managing Loggers. |
 | Logger | Manage and log Appenders. |
-| Appender | Define destination and append log. |
+| Appender | Define output destination and append log. |
 
 # Development
 

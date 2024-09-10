@@ -1,4 +1,8 @@
-/** Log Level. */
+/**
+ * Log level.
+ * `Trace` < `Debug` < `Info` < `Warn` < `Error`
+ * @enum
+ */
 export const LogLevel = {
     None: { priority: 0, label: "NONE" },
     Trace: { priority: 1000, label: "TRACE" },
@@ -8,5 +12,4 @@ export const LogLevel = {
     Error: { priority: 5000, label: "ERROR" }
 } as const;
 
-/** Log Level. */
 export type LogLevel = typeof LogLevel[keyof typeof LogLevel];

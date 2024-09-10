@@ -4,26 +4,47 @@ import { Appender } from "../appender/appender";
 import { ConsoleAppender } from "../appender/console.appender";
 import { LogLevel } from "../types/loglevel";
 
+/**
+ * Interface to add Logger.
+ * @public
+ */
 export interface ILogger {
+    /** Logger name. */
     name: string,
+    /** Log level. */
     level: LogLevel,
+    /** Appenders. */
     appenders?: Appender[]
 }
 
+/**
+ * Singleton service for managing Loggers.
+ * @public
+ * @decorator `@Injectable()`
+ */
 @Injectable({
     providedIn: 'root'
 })
 export class LoggerService {
-    /** Root Logger */
+    /**
+     * Root Logger name.
+     * @readonly
+     */
     public static readonly ROOT_LOGGER_NAME: string = "root";
 
-    /** Loggers */
+    /**
+     * Loggers.
+     */
     private static loggers: Map<string, Logger> = new Map<string, Logger>();
 
+    /**
+     * @constructor
+     * @param {LogLevel} rootLoglevel Root Logger's log level. Default value is Trace.
+     */
     constructor(
         rootLoglevel: LogLevel = LogLevel.Trace
     ) {
-        // Initialize Root Logger
+        // Initialize Root Logger.
         LoggerService.loggers.set(
             LoggerService.ROOT_LOGGER_NAME,
             new Logger(
@@ -34,8 +55,8 @@ export class LoggerService {
     }
 
     /**
-     * Add Logger. When Logger Service has the provided name, Do nothing.
-     * @param {ILogger}  logger Logger Info
+     * Add Logger. When Logger service has the provided name, do nothing.
+     * @param {ILogger}  logger Logger info
      */
     public addLogger(logger: ILogger): void {
         if (!this.has(logger.name)) {
@@ -48,8 +69,8 @@ export class LoggerService {
     }
 
     /**
-     * Remove Logger. Root Logger is unremovable using this method.
-     * @param {string}  name Logger Name
+     * Remove Logger. Root Logger is unremovable.
+     * @param {string}  name Logger name.
      */
     public removeLogger(name: string): void {
         if (LoggerService.ROOT_LOGGER_NAME !== name) {
@@ -59,8 +80,8 @@ export class LoggerService {
 
     /**
      * Get Logger.
-     * @param {string}  name Logger Name
-     * @returns {Logger} When Logger Service doesn't have the provided Logger name, return Root Logger
+     * @param {string}  name Logger name.
+     * @return {Logger} When Logger service doesn't have the provided Logger name, return Root Logger.
      */
     public getLogger(name?: string): Logger {
         if (!name) {
@@ -73,23 +94,28 @@ export class LoggerService {
     }
 
     /**
-     * Get Logger Names.
-     * @returns {string[]} Logger Names
+     * Logger names.
+     * @returns {string[]} Logger names.
      */
     public get loggers(): string[] {
         return Array.from(LoggerService.loggers.keys());
     }
 
     /**
-     * Logger Service has the Logger or not.
-     * @param {string} name Logger Name
-     * @returns {boolean} When true, Logger Service has the Logger
+     * Logger service has the Logger or not.
+     * @param {string} name Logger name.
+     * @return {boolean} When true, Logger service has the Logger.
      */
     public has(name: string): boolean {
         return LoggerService.loggers.has(name);
     }
 }
 
+/**
+ * Provider function for Logger service.
+ * @param arg Loggers info. 
+ * @returns {EnvironmentProviders} Providers of Logger service.
+ */
 export function provideLoggerService(arg?: {
     rootLogLevel?: LogLevel;
     rootAppenders?: Appender[];

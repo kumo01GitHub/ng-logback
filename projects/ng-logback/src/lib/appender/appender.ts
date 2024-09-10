@@ -1,30 +1,31 @@
 import { LogLevel } from "../types/loglevel";
 
-/** Logging Event. */
+/** 
+ * Logging event.
+ */
 export interface ILoggingEvent {
-    /** Logger Name. */
+    /** Logger name. */
     logger: string,
     /** Timestamp. */
     timestamp: Date;
-    /** Log Level. */
+    /** Log level. */
     level: LogLevel;
-    /** Log Message. */
+    /** Log message. */
     message: string;
 }
 
 /**
- * Appender. Define Output Destination.
+ * Define output destination and append log.
  */
 export interface Appender {
     /**
-     * Appender Name.
+     * Appender name. Logger uses for key to manage Appenders.
      */
     get name(): string;
 
     /**
-     * Do Append.
-     *
-     * @param {ILoggingEvent} event Logging Event
+     * Do append.
+     * @param {ILoggingEvent} event Logging event.
      */
     doAppend(event: ILoggingEvent): void;
 }

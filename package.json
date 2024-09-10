@@ -1,6 +1,6 @@
 {
   "name": "ng-logback",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "scripts": {
     "prepublishOnly": "cpx ./README.md dist/ng-logback && cpx ./LICENSE dist/ng-logback",
     "ng": "ng",

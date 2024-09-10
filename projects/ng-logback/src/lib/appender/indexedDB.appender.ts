@@ -2,6 +2,7 @@ import { Appender, ILoggingEvent } from "./appender";
 
 /**
  * IndexedDB Appender.
+ * @public
  */
 export class IndexedDBAppender implements Appender {
     constructor(
