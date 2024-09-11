@@ -6,7 +6,6 @@ import { LogLevel } from "../types/loglevel";
 
 /**
  * Interface to add Logger.
- * @public
  */
 export interface ILogger {
     /** Logger name. */
@@ -19,7 +18,6 @@ export interface ILogger {
 
 /**
  * Singleton service for managing Loggers.
- * @public
  * @decorator `@Injectable()`
  */
 @Injectable({

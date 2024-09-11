@@ -3,7 +3,6 @@ import { Appender, ILoggingEvent } from "./appender";
 
 /**
  * Console Appender.
- * @public
  */
 export class ConsoleAppender implements Appender {
     public get name(): string {

@@ -3,7 +3,6 @@ import { LogLevel } from '../types/loglevel';
 
 /**
  * Manage and log Appenders.
- * @public
  */
 export class Logger {
     private _appenders: Map<string, Appender> = new Map<string, Appender>();

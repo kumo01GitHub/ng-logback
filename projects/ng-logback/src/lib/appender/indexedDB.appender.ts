@@ -2,13 +2,13 @@ import { Appender, ILoggingEvent } from "./appender";
 
 /**
  * IndexedDB Appender.
- * @public
  */
 export class IndexedDBAppender implements Appender {
     constructor(
+        private dbName: string,
         private storeName: string = this.constructor.name
     ) {
-        const openRequest: IDBOpenDBRequest = indexedDB.open(this.constructor.name);
+        const openRequest: IDBOpenDBRequest = indexedDB.open(this.dbName);
         openRequest.onupgradeneeded = (event: IDBVersionChangeEvent): void => {
             const db: IDBDatabase = (event.target as IDBOpenDBRequest).result;
             if (!db.objectStoreNames.contains(this.storeName)) {
@@ -18,7 +18,7 @@ export class IndexedDBAppender implements Appender {
             }
         }
         openRequest.onerror = (): void => {
-            console.error("open IndexDB fail");
+            console.error("Failed to open IndexedDB");
         }
     }
 
@@ -34,9 +34,10 @@ export class IndexedDBAppender implements Appender {
                 const transaction: IDBTransaction = db.transaction(this.storeName, "readwrite");
                 const store: IDBObjectStore = transaction.objectStore(this.storeName);
                 store.put({ timestamp: event.timestamp.toLocaleString(), logger: event.logger, level: event.level.label, message: event.message });
+                transaction.commit();
             }
             openRequest.onerror = (): void => {
-                console.error("open IndexDB fail");
+                console.error("Failed to open IndexedDB");
             }
         }
     }

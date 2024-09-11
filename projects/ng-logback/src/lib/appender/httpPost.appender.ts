@@ -4,7 +4,6 @@ import { Appender, ILoggingEvent } from "./appender";
 
 /**
  * Http Post Appender.
- * @public
  */
 export class HttpPostAppender implements Appender {
 
