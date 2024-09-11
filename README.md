@@ -5,6 +5,7 @@ Logger Service for Angular inspired by Logback.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.1.
 
 ## Overview
+
 ```mermaid
 ---
 title: "Outline Diagram"
@@ -21,7 +22,13 @@ erDiagram
 | Logger | Manage and log Appenders. |
 | Appender | Define output destination and append log. |
 
-# Development
+## Appenders
+
+List of Appenders library provides:
+- Console Appender
+- Http Post Appender
+- IndexedDB Appender
+- LocalStorage Appender
 
 ## Development server
 
