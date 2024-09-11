@@ -1,5 +1,7 @@
 # NgLogback
 
+[![NPM](https://nodei.co/npm/ng-logback.png)](https://nodei.co/npm/ng-logback/)
+
 Logger Service for Angular inspired by Logback.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.1.
