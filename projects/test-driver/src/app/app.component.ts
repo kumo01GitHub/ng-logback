@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { GoogleAnalyticsAppender, HttpPostAppender, LoggerService, LogLevel } from 'ng-logback';
+import { getAnalytics } from 'firebase/analytics';
+import { initializeApp } from 'firebase/app';
+import { FirebaseAnalyticsAppender, GoogleAnalyticsAppender, HttpPostAppender, LoggerService, LogLevel } from 'ng-logback';
 
 @Component({
   selector: 'app-root',
@@ -26,12 +28,27 @@ export class AppComponent {
     logger.warn(`${this.title}: sample message`);
     logger.error(`${this.title}: sample message`);
 
+    const firebaseConfig = {
+      apiKey: "xxxx",
+      authDomain: "xxxx.firebaseapp.com",
+      projectId: "xxxx",
+      storageBucket: "xxxx.appspot.com",
+      messagingSenderId: "000000000000",
+      appId: "xxxx",
+      measurementId: "G-XXXXXXXXXX"
+    };
+    
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+
     this.loggerService.addLogger({
       name: this.constructor.name,
       level: LogLevel.Info,
       appenders: [
         new HttpPostAppender(this.httpClient, this.loggingApiUrl),
-        new GoogleAnalyticsAppender("log_event")
+        new GoogleAnalyticsAppender("log_event"),
+        new FirebaseAnalyticsAppender(analytics, "log_event"),
       ]
     });
   }

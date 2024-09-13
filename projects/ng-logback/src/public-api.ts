@@ -12,6 +12,7 @@ export * from './lib/appender/httpPost.appender';
 export * from './lib/appender/indexedDB.appender';
 export * from './lib/appender/localStorage.appender';
 export * from './lib/appender/googleAnalytics.appender';
+export * from './lib/appender/firebaseAnalytics.appender';
 
 /** logger service */
 export * from './lib/service/logger.service';

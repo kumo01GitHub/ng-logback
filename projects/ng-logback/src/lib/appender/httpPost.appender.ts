@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Appender, ILoggingEvent } from "./appender";
 
 /**
- * Http Post Appender.
+ * HTTP POST Appender.
  */
 export class HttpPostAppender implements Appender {
 

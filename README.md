@@ -26,9 +26,14 @@ erDiagram
 
 List of Appenders library provides:
 - Console Appender
-- Http Post Appender
+- HTTP POST Appender
+    - dependencies: [@angular/common/http](https://www.npmjs.com/package/@angular/common)
 - IndexedDB Appender
 - LocalStorage Appender
+    - dependencies: [uuid](https://www.npmjs.com/package/uuid)
+- Google Analytics Appender
+- Google Analytics for Firebase Appender
+    - dependencies: [firebase/analytics](https://www.npmjs.com/package/@firebase/analytics)
 
 ## Development server
 
