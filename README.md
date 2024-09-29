@@ -1,8 +1,8 @@
 # NgLogback
 
-[![NPM](https://nodei.co/npm/ng-logback.png)](https://nodei.co/npm/ng-logback/)
+[![npm version](https://badge.fury.io/js/ng-logback.svg)](https://badge.fury.io/js/ng-logback)
 
-Logger Service for Angular inspired by Logback.
+Logger for Angular inspired by Logback using [Logback4js](https://github.com/kumo01GitHub/logback4js).
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.1.
 
@@ -13,29 +13,22 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 title: "Outline Diagram"
 ---
 erDiagram
-    LoggerService ||--|{ Logger: ""
+    LoggerFactory ||--|{ Logger: ""
     Logger }o--o{ Appender: ""
 
 ```
 
 | Class | Role |
 | ---- | ---- |
-| LoggerService | Singleton service for managing Loggers. |
+| LoggerFactory | Factory class of Loggers. |
 | Logger | Manage and log Appenders. |
 | Appender | Define output destination and append log. |
 
 ## Appenders
 
 List of Appenders library provides:
-- Console Appender
-- HTTP POST Appender
+- HTTP POST Appender for Angular
     - dependencies: [@angular/common/http](https://www.npmjs.com/package/@angular/common)
-- IndexedDB Appender
-- LocalStorage Appender
-    - dependencies: [uuid](https://www.npmjs.com/package/uuid)
-- Google Analytics Appender
-- Google Analytics for Firebase Appender
-    - dependencies: [firebase/analytics](https://www.npmjs.com/package/@firebase/analytics)
 
 ## Development server
 

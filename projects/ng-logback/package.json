@@ -1,30 +1,26 @@
 {
   "name": "ng-logback",
   "version": "0.1.4",
-  "description": "Logger Service for Angular inspired by Logback.",
+  "description": "Logger for Angular inspired by Logback.",
   "keywords": [
     "Angular",
     "log",
-    "logger",
-    "Google Analytics",
-    "GA4",
-    "Firebase"
+    "logger"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/kumo01GitHub/ng-logback.git"
   },
-  "license": "Apache-2.0",
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^18.2.0",
-    "@angular/core": "^18.2.0"
+    "@angular/core": "^18.2.0",
+    "@logback4js/core": "^0.2.3"
   },
   "dependencies": {
     "tslib": "^2.3.0"
   },
   "sideEffects": false,
   "devDependencies": {
-    "@types/gtag.js": "^0.0.20",
-    "@types/uuid": "^10.0.0"
   }
 }
