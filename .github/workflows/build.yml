@@ -17,4 +17,4 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: setup
         run: npm ci
-      - run: npm run build
+      - run: npm run build ng-logback
