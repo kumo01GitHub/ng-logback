@@ -2,6 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/ng-logback.svg)](https://badge.fury.io/js/ng-logback)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![build status](https://github.com/kumo01GitHub/logback4js/actions/workflows/build.yml/badge.svg?branch=master)
 
 Logger for Angular inspired by Logback using [Logback4js](https://github.com/kumo01GitHub/logback4js).
 

@@ -1,12 +1,13 @@
 {
   "name": "ng-logback",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "scripts": {
     "prepublishOnly": "cpx ./README.md dist/ng-logback && cpx ./LICENSE dist/ng-logback",
     "ng": "ng",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "coverage": "ng test --no-watch --code-coverage",
     "start:driver": "npm run build ng-logback && ng serve test-driver",
     "start:mock": "cd mock/logging-api && npm ci && node bin/www",
     "start": "run-p start:*"

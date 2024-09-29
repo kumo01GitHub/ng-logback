@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { LoggerFactory, LogLevel, NgHttpPostAppender } from 'ng-logback';
+import { Log, LoggerFactory, LogLevel, NgHttpPostAppender } from 'ng-logback';
 
 @Component({
   selector: 'app-root',
@@ -29,6 +29,9 @@ export class AppComponent {
     });
   }
 
+  @Log({
+    level: LogLevel.Warn
+  })
   public log(): void {
     LoggerFactory.getLogger(this.constructor.name).info("send log");
   }
