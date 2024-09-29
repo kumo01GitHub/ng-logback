@@ -15,7 +15,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/kumo01GitHub/ng-logback.git"
+    "url": "git+https://github.com/kumo01GitHub/ng-logback.git"
   },
   "license": "MIT",
   "dependencies": {
