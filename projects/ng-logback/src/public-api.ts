@@ -7,6 +7,3 @@ export * from '@logback4js/core';
 
 /** Appenders */
 export * from './lib/appenders/ngHttpPost.appender';
-
-/** Decorators */
-export * from './lib/decorators/log.decorator';

@@ -1,6 +1,6 @@
 {
   "name": "ng-logback",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Logger for Angular inspired by Logback.",
   "keywords": [
     "Angular",
@@ -15,7 +15,7 @@
   "peerDependencies": {
     "@angular/common": "^18.2.0",
     "@angular/core": "^18.2.0",
-    "@logback4js/core": "^0.2.3"
+    "@logback4js/core": "^0.2.4"
   },
   "dependencies": {
     "tslib": "^2.3.0"
